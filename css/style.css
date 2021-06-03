@@ -282,11 +282,6 @@ body._lock {
   width: 549px;
   height: 60px;
   border-radius: 2px;
-  -webkit-transition: margin 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
-  transition: margin 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
-  -o-transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s, margin 0.3s ease 0s;
-  transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s, margin 0.3s ease 0s;
-  transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s, margin 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
 }
 
 .form__line:not(:last-child) {
@@ -301,16 +296,6 @@ body._lock {
   top: 25%;
 }
 
-.form__line._focus {
-  -webkit-box-shadow: 10px 5px 15px #0a0a0a;
-          box-shadow: 10px 5px 15px #0a0a0a;
-  -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-          transform: scale(1.05);
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
 .form__line._focus .form__label {
   -webkit-transform: translate(0px, 0%);
       -ms-transform: translate(0px, 0%);
@@ -319,6 +304,17 @@ body._lock {
   left: 10px;
   font-weight: 600;
   font-size: 20px;
+}
+
+.form__line._error {
+  margin-bottom: 50px;
+  border-right: 1px solid #FF1820;
+  border-left: 1px solid #FF1820;
+  border-bottom: 1px solid #FF1820;
+}
+
+.form__line._error > .form__label {
+  color: #FF1820;
 }
 
 ._no-webp .form__button{
@@ -345,6 +341,13 @@ body._lock {
   -webkit-transition: background 0.3s ease 0s;
   -o-transition: background 0.3s ease 0s;
   transition: background 0.3s ease 0s;
+}
+
+.form__error {
+  margin-top: 10px;
+  color: #FF1820;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .btn {
@@ -474,10 +477,32 @@ textarea {
   height: 100%;
   display: block;
   padding: 0px 40px;
+  font-size: 24px;
   background: #F8F8F8;
   -webkit-box-shadow: inset 0px 0px 17px rgba(0, 0, 0, 0.07);
           box-shadow: inset 0px 0px 17px rgba(0, 0, 0, 0.07);
   border-radius: 2px;
+  -webkit-transition: margin 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  transition: margin 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  -o-transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s, margin 0.3s ease 0s;
+  transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s, margin 0.3s ease 0s;
+  transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s, margin 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+}
+
+.input._error {
+  border-right: 1px solid #b30101;
+  border-left: 1px solid #b30101;
+  border-bottom: 1px solid #b30101;
+}
+
+.input:focus {
+  -webkit-box-shadow: 10px 5px 15px #0a0a0a;
+          box-shadow: 10px 5px 15px #0a0a0a;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 textarea {

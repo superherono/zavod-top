@@ -1203,6 +1203,21 @@ for (let index = 0; index < mainCards.length; index++) {
 	}
 
 }
+//==================Smooth Scroll========================
+const anchors = document.querySelectorAll('a[href*="#"]');
+
+for (let anchor of anchors) {
+	anchor.addEventListener('click', function (e) {
+		e.preventDefault()
+
+		const blockID = anchor.getAttribute('href').substr(1);
+
+		document.getElementById(blockID).scrollIntoView({
+			behavior: 'smooth',
+			block: 'start'
+		});
+	});
+}
 //let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
 if (forms.length > 0) {
@@ -1235,7 +1250,8 @@ async function form_submit(e) {
 				let result = await response.json();
 				form.classList.remove('_sending');
 				if (message) {
-					popup_open(message + '-message');
+					popup_open(message);
+					setTimeout(popup_close, 1700);
 				}
 				form_clean(form);
 			} else {
@@ -1588,7 +1604,7 @@ function inputs_init(inputs) {
 					//'+38(999) 999 9999'
 					//'+375(99)999-99-99'
 					input.classList.add('_mask');
-					Inputmask("+375 (99) 9999999", {
+					Inputmask("+7(999) 999 9999", {
 						//"placeholder": '',
 						clearIncomplete: true,
 						clearMaskOnLostFocus: true,
@@ -1596,6 +1612,7 @@ function inputs_init(inputs) {
 							input_clear_mask(input, input_g_value);
 						}
 					}).mask(input);
+					console.log('маска вставлена');
 				}
 				if (input.classList.contains('_digital')) {
 					input.classList.add('_mask');
